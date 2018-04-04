@@ -22,7 +22,7 @@ class Server
       diagnostics_list = pull_request_lines(client)
       add_to_counters
       response = Responder.new(diagnostics_list, path, @hello_counter, @request_counter)
-      #game_starter
+      game_starter
       output = response.determine_output_from_path
       client.puts response.write_header(output)
       client.puts output
@@ -62,13 +62,18 @@ class Server
     end
   end
 
-    def shutdown?(client)
-      if path == "/shutdown"
-        tcp_server.close
-      else
-        client.close
-      end
+  def game_starter
+    if path == "/start_game"
+      @game = Game.new 
+  end
+
+  def shutdown?(client)
+    if path == "/shutdown"
+      tcp_server.close
+    else
+      client.close
     end
+  end
 
 
  end

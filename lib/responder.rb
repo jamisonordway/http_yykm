@@ -45,7 +45,7 @@ class Responder
        found = ws.find_word(path)
        write_output(found)
      when '/start_game'
-       write_output("Playing Number Guesser")
+       write_output("Good luck!")
     else
       write_output("Not a valid path.")
     end

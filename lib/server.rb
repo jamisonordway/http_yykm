@@ -21,8 +21,8 @@ class Server
       client = tcp_server.accept
       diagnostics_list = pull_request_lines(client)
       add_to_counters
-      response = Responder.new(diagnostics_list, path, @hello_counter, @request_counter)
-      game_starter
+      response = Responder.new(diagnostics_list, path, hello_counter, request_counter)
+      #game_starter
       output = response.determine_output_from_path
       client.puts response.write_header(output)
       client.puts output
@@ -62,10 +62,11 @@ class Server
     end
   end
 
-  def game_starter
-    if path == "/start_game"
-      @game = Game.new 
-  end
+  # def game_starter
+  #   if path == "/game" && verb == "POST"
+  #     number = client.read
+  #   end
+  # end
 
   def shutdown?(client)
     if path == "/shutdown"
@@ -74,6 +75,5 @@ class Server
       client.close
     end
   end
-
 
  end

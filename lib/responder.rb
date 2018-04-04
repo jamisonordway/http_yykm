@@ -1,4 +1,6 @@
+require_relative 'word_search'
 require './test/test_helper'
+require 'pry'
 
 class Responder
   attr_reader :path,
@@ -39,7 +41,8 @@ class Responder
     when '/shutdown'
       write_output("Total Number of Requests #{requests}")
     when '/wordsearch'
-       found = WordSearch.new.find_word(path)
+       ws = WordSearch.new
+       found = ws.find_word(path)
        write_output(found)
     # when '/start_game'
     #   write_output("Playing Number Guesser")

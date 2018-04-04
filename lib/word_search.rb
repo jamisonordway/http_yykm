@@ -2,7 +2,7 @@ class WordSearch
   attr_reader :word
 
   def pull_word(path)
-    @word = path.split('/wordsearch?word=')[1]
+    @word = path.split('=')[1]
   end
 
   def search_in_dictionary
@@ -16,6 +16,7 @@ class WordSearch
   def find_word(path)
     pull_word(path)
     found = search_in_dictionary
+    #require 'pry', binding.pry
     send_correct_response(found)
   end
 

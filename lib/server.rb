@@ -33,8 +33,8 @@ class Server
 
   def pull_request_lines(client)
     request_lines = []
-    # I tried to fix this operation within a conditional and I kept
-    # breaking my code :(
+    # I tried to fix this operation within a conditional 
+    # and I kept breaking my code :(
     while line = client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
@@ -82,6 +82,8 @@ class Server
     end
   end
 
+
+# Must be missing something here because post does nothing
   def redirect(client)
     header = ['HTTP/1.1 301 Moved Permanently',
               'location: http://localhost:9292/game',

@@ -1,4 +1,4 @@
-require_relative 'word_search'
+require './lib/word_search'
 require './test/test_helper'
 require 'pry'
 

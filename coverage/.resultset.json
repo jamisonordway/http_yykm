@@ -2,10 +2,21 @@
   "Unit Tests": {
     "coverage": {
       "/Users/jamisonordway/Desktop/turing/1module/projects/HYYKM/lib/game.rb": [
-
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1522868895
+    "timestamp": 1522869061
   },
   "MiniTest": {
     "coverage": {

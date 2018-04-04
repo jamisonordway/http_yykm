@@ -65,7 +65,7 @@ class Server
   end
 
   # THIS GENERATES A NEW INSTANCE OF THE GAME CLASS, BUT UNTIL I FIGURE
-  # OUT HOW TO REDIRECT IT IS USELESS
+  # OUT HOW TO REDIRECT, IT IS USELESS
   # def game_starter
   #   if path == "/start_game"
   #     @game = Game.new

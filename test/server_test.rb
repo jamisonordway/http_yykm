@@ -4,6 +4,8 @@ require './test/test_helper'
 
 class ServerTest < Minitest::Test
 
+  # Not sure what else to test for server 
+
   def test_status_starts_at_200
     response = Faraday.get('http://localhost:9292/')
     assert_equal 200, response.status

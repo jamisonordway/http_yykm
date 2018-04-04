@@ -32,7 +32,9 @@ class Server
 
   def pull_request_lines(client)
     request_lines = []
-    while line = client.gets and !line.chomp.empty?
+    line = client.gets
+    while !line.chomp.empty?
+      line = client.gets
       request_lines << line.chomp
     end
     @parser.format_request_lines(request_lines)
@@ -62,7 +64,16 @@ class Server
     end
   end
 
-  # def game_starter
+  # THIS GENERATES A NEW INSTANCE OF THE GAME CLASS, BUT UNTIL I FIGURE
+  # OUT HOW TO REDIRECT IT IS USELESS
+  def game_starter
+    if path == "/start_game"
+      @game = Game.new
+    end
+  end
+
+  #THIS SHOULD TAKE THE USER GUESS AND PASS IT INTO GAME
+  # def game_guess
   #   if path == "/game" && verb == "POST"
   #     number = client.read
   #   end

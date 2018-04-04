@@ -33,8 +33,7 @@ class Server
   def pull_request_lines(client)
     request_lines = []
     line = client.gets
-    while !line.chomp.empty?
-      line = client.gets
+    while line = client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
     @parser.format_request_lines(request_lines)

@@ -32,7 +32,6 @@ class Server
 
   def pull_request_lines(client)
     request_lines = []
-    line = client.gets
     # I tried to fix this operation within a conditional and I kept
     # breaking my code :(
     while line = client.gets and !line.chomp.empty?
@@ -67,18 +66,29 @@ class Server
 
   # THIS GENERATES A NEW INSTANCE OF THE GAME CLASS, BUT UNTIL I FIGURE
   # OUT HOW TO REDIRECT IT IS USELESS
-  def game_starter
-    if path == "/start_game"
-      @game = Game.new
-    end
-  end
+  # def game_starter
+  #   if path == "/start_game"
+  #     @game = Game.new
+  #   end
+  # end
 
   #THIS SHOULD TAKE THE USER GUESS AND PASS IT INTO GAME
   # def game_guess
   #   if path == "/game" && verb == "POST"
   #     number = client.read
+  #     game.guess(number)
+  #     redirect(client)
   #   end
   # end
+
+  def redirect(client)
+    header = ['HTTP/1.1 301 Moved Permanently',
+              'location: http://localhost:9292/game',
+              "date: #{Time.now.strftime('%a, %e %b %Y %H:%M:%S %z')}",
+              'server: ruby',
+              'content-type: text/html; charset=iso-8859-1\r\n\r\n'].join("\r\n")
+    client.puts header
+  end
 
   def shutdown?(client)
     if path == "/shutdown"

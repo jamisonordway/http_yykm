@@ -26,8 +26,8 @@ class Game
   end
 
   def write_response(requests)
-    response = "Number of guesses: #{guess_count} <br>Guess:#{user_guess}<br>This guess was #{guess_check}"
+    response = "Number of guesses: #{guess_count} <br>Guess:#{user_guess}<br>This guess was #{guess_feedback}"
     "<html><head></head><body>Number of Requests:#{requests}</p><h1>#{response}</h1></body></html>"
   end
-  
+
 end

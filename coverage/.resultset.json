@@ -1,0 +1,44 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/jamisonordway/Desktop/turing/1module/projects/HTTPYYKM/lib/word_search.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1522803707
+  },
+  "MiniTest": {
+    "coverage": {
+    },
+    "timestamp": 1522803817
+  }
+}

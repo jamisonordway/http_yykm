@@ -33,6 +33,8 @@ class Server
   def pull_request_lines(client)
     request_lines = []
     line = client.gets
+    # I tried to fix this operation within a conditional and I kept
+    # breaking my code :(
     while line = client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end

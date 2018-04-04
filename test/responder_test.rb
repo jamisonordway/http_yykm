@@ -53,6 +53,13 @@ class ResponseTest < Minitest::Test
     assert_equal "<html><head></head><body><p>#{@diagnostics_lines.join("<br>")}<br>Number of Requests: #{@requests}</p><h1>6:21PM on Tuesday, April 3</h1></body></html>", result
   end
 
+  def test_it_writes_correct_output_for_shutdown_path
+    response = Responder.new(@diagnostics_lines, @path_root, 0, 1)
+    result = response.write_output("Total Number of Requests 1")
+
+    assert_equal "<html><head></head><body><p>Total Number of Requests 1</p></body></html>", result
+  end
+
   def test_it_determines_which_output_for_given_path
     response = Responder.new(@diagnostics_lines, @path_root, 0, 0)
     output = response.determine_output_from_path

@@ -1,4 +1,5 @@
 require 'socket'
+require 'pry'
 
 class Parser
   attr_reader :diagnostics,
@@ -22,6 +23,7 @@ class Parser
   end
 
   def finalize(request_lines)
+    #binding.pry
     diagnostics_format = diagnostics.to_a.map do |line|
       "#{line[0]}: #{line[1]}"
     end

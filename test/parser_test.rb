@@ -50,8 +50,9 @@ class ParserTest < Minitest::Test
 
   def test_finalize_interpolates_lines
     parser = Parser.new
-    parser.finalize(@request_lines)
-    result = @diagnostics_format
+    result = parser.finalize(@request_lines)
+
+    assert_equal ["Verb: ", "Path: ", "Protocol: "], result
   end
 
 end

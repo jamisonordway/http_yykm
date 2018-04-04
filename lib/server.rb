@@ -1,6 +1,7 @@
 require 'socket'
 require './lib/parser'
 require './lib/responder'
+require './lib/game'
 
 class Server
   attr_reader :tcp_server,
@@ -22,7 +23,7 @@ class Server
       diagnostics_list = pull_request_lines(client)
       add_to_counters
       response = Responder.new(diagnostics_list, path, hello_counter, request_counter)
-      #game_starter
+      game_starter
       output = response.determine_output_from_path
       client.puts response.write_header(output)
       client.puts output
@@ -66,20 +67,20 @@ class Server
 
   # THIS GENERATES A NEW INSTANCE OF THE GAME CLASS, BUT UNTIL I FIGURE
   # OUT HOW TO REDIRECT, IT IS USELESS
-  # def game_starter
-  #   if path == "/start_game"
-  #     @game = Game.new
-  #   end
-  # end
+  def game_starter
+    if path == "/start_game"
+      @game = Game.new
+    end
+  end
 
   #THIS SHOULD TAKE THE USER GUESS AND PASS IT INTO GAME
-  # def game_guess
-  #   if path == "/game" && verb == "POST"
-  #     number = client.read
-  #     game.guess(number)
-  #     redirect(client)
-  #   end
-  # end
+  def game_guess
+    if path == "/game" && verb == "POST"
+      number = client.read
+      game.guess(number)
+      redirect(client)
+    end
+  end
 
   def redirect(client)
     header = ['HTTP/1.1 301 Moved Permanently',

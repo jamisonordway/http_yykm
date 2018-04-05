@@ -66,7 +66,7 @@ class Server
   end
 
   # This generates a new instance of the game class,
-  # but until I get redirect to work, it's useless
+  # but until I get redirect to work, is useless
   def game_starter
     if path == "/start_game"
       @game = Game.new
